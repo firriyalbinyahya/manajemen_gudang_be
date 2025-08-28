@@ -66,5 +66,6 @@ All API endpoints are prefixed with `/api/v1`.
 | `GET` | `/api/v1/products/:id` | Retrieves a single product by ID. | N/A | `200 OK` with the product object. |
 | `PUT` | `/api/v1/products/:id` | Updates an existing product. | **Optional:** `{"quantity": 90, "status": "Low Stock"}` | `200 OK` with a success message. |
 | `DELETE`| `/api/v1/products/:id` | Deletes a product by ID. | N/A | `200 OK` with a success message. |
+| `GET`   | `/api/v1/report` | Retrieves a summary of warehouse. | N/A | `200 OK` with a success message. |
 
 ### Screenshots or Demo Link
