@@ -12,7 +12,7 @@ type Product struct {
 type CreateProductRequest struct {
 	ProductName string `json:"product_name" binding:"required"`
 	SKU         string `json:"sku" binding:"required"`
-	Quantity    int    `json:"quantity" binding:"required,min=0"`
+	Quantity    int    `json:"quantity" binding:"required"`
 	Location    string `json:"location" binding:"required"`
 	Status      string `json:"status" binding:"required"`
 }

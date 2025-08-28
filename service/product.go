@@ -1,6 +1,7 @@
 package service
 
 import (
+	"errors"
 	"manajemen_gudang_be/entity"
 	"manajemen_gudang_be/repository"
 	"math"
@@ -15,6 +16,9 @@ func NewProductService(productRepository *repository.ProductRepository) *Product
 }
 
 func (ps *ProductService) CreateProduct(req *entity.CreateProductRequest) error {
+	if req.Quantity < 0 {
+		return errors.New("quantity tidak bisa kurang dari 0")
+	}
 	product := &entity.Product{
 		ProductName: req.ProductName,
 		SKU:         req.SKU,
