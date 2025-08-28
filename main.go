@@ -18,11 +18,6 @@ func InitializeApp() *gin.Engine {
 
 	r := gin.Default()
 
-	db := database.ConnectDatabase()
-	db.AutoMigrate(&entity.User{}, &entity.Product{})
-
-	routes.SetupRoutes(r, db)
-
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:5173"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
@@ -31,6 +26,11 @@ func InitializeApp() *gin.Engine {
 		AllowCredentials: true,
 		MaxAge:           12 * 3600,
 	}))
+
+	db := database.ConnectDatabase()
+	db.AutoMigrate(&entity.User{}, &entity.Product{})
+
+	routes.SetupRoutes(r, db)
 
 	return r
 }
